@@ -10,7 +10,7 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
-    background-color: #000;
+    background-color: #1e1b1b;
     border-bottom: 1px solid #222;
     padding: 12px 20px;
     position: sticky;
@@ -33,12 +33,13 @@ body {
 }
 
 .navBar1 li {
-   
+    
     list-style: none;
     color: rgb(240, 234, 234);
     font-weight: bold;
     cursor: pointer;
 }
+
 
 .navBar .logo{
     display: flex;
@@ -156,6 +157,7 @@ img{
 }
 
 #pele{
+    height: 30px;
     border-radius: 20px;
     text-align: center;
 }
@@ -170,12 +172,26 @@ img{
     position:sticky;
     
     background-color: antiquewhite;
-    height:13vh;
+    height:9vh;
     margin:auto;
     border-radius: 30px;
+    flex-direction: column;
+    
 }
 #range{
-    margin-bottom: 30px;
-    width: 80vh;
+   justify-content: center;
+   margin-top: 31x;
+    margin-bottom: 20px;
+    width: 85vh;
 
+
+}
+.play{
+    size: 30px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
 }
