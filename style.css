@@ -61,7 +61,7 @@ img{
 
 .library{
     border: 2px rgb(180, 8, 8);
-     
+     cursor: pointer;
    background-color: #121212;
     border-radius: 8px;
     padding: 12px;
@@ -96,12 +96,15 @@ img{
 
 
 .content{
+    
     display: flex;
     background-color: #121212;
     border-radius: 8px;
     padding: 12px;
     width:max-content ;
     margin: 30px;
+    width: 280px;
+    
     
 
      
@@ -143,7 +146,7 @@ img{
 
 .layout {
     display: flex;
-    height: calc(100vh - 100px);
+    height: 70vh
 }
 
 .sidebar {
@@ -154,6 +157,7 @@ img{
 .main {
     flex: 1;
     padding: 20px;
+
 }
 
 #pele{
@@ -165,24 +169,30 @@ img{
 
 .artist{
     width: 95vh;
-    
+    cursor: pointer;
     display: flex;
     justify-content:center;
     align-content: center;
     position:sticky;
     
     background-color: antiquewhite;
-    height:9vh;
+    height:12vh;
+    
     margin:auto;
     border-radius: 30px;
     flex-direction: column;
     
 }
 #range{
+    display: flex;
    justify-content: center;
-   margin-top: 31x;
-    margin-bottom: 20px;
-    width: 85vh;
+   
+
+   margin-top: 3vh;
+   margin-left: 46px;
+
+    
+    width: 80vh;
 
 
 }
@@ -194,4 +204,32 @@ img{
     align-items: center;
    
     
+}
+.songItem{
+    cursor: pointer;
+    height: 45px;
+    background-color: antiquewhite;
+    color: #222;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0;
+    display: flex;
+    width: 300px;
+    border-radius: 30px;
+    margin-left: 33px;
+    
+    
+
+}
+.songItem img{
+    margin-left: 10px;
+    height: 35px;
+    width: 35px;
+    
+}
+
+
+.music{
+    height: 250px;
+    overflow-y: scroll;
 }
