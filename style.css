@@ -18,7 +18,7 @@ body {
     z-index: 10;
 }
 
-.navBar1{
+.navBar1 {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -29,11 +29,11 @@ body {
     gap: 50px;
     padding: 0;
     margin: 0;
-    
+
 }
 
 .navBar1 li {
-    
+
     list-style: none;
     color: rgb(240, 234, 234);
     font-weight: bold;
@@ -41,48 +41,48 @@ body {
 }
 
 
-.navBar .logo{
+.navBar .logo {
     display: flex;
     align-items: center;
 
-    
+
 }
 
-img{
-   
+img {
+
     height: 30px;
     width: 30px;
     border-radius: 100px;
-    
+
 }
 
 
 
 
-.library{
+.library {
     border: 2px rgb(180, 8, 8);
-     cursor: pointer;
-   background-color: #121212;
+    cursor: pointer;
+    background-color: #121212;
     border-radius: 8px;
     padding: 12px;
     border: 2px rgb(12, 8, 8);
-    height:fit-content;
+    height: fit-content;
     width: 230px;
 }
 
 
-.library ul{
+.library ul {
     display: flex;
     margin: 0px;
     padding: 0px;
     list-style: none;
-    
-    
+
+
 }
 
-.library li{
+.library li {
 
-    
+
     margin: 10px;
     list-style: none;
     border: 2px solid grey;
@@ -90,26 +90,28 @@ img{
     width: max-content;
     border-radius: 30px;
 
-    
-    
+
+
 }
 
 
-.content{
-    
+.content {
+
     display: flex;
     background-color: #121212;
     border-radius: 8px;
     padding: 12px;
-    width:max-content ;
+    width: max-content;
     margin: 30px;
     width: 280px;
     
-    
 
-     
-    
+
+
+
+
 }
+
 .content ul {
     display: flex;
     gap: 8px;
@@ -124,18 +126,19 @@ img{
     padding: 8px 14px;
     border-radius: 20px;
     background-color: #2a2a2a;
-  
+
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-.content li:not(.active):hover  {
+.content li:not(.active):hover {
     background-color: #3a3a3a;
-     
-     
+
+
 }
+
 .content li.active {
     background-color: #fff;
     color: #000;
@@ -146,7 +149,7 @@ img{
 
 .layout {
     display: flex;
-    height: 70vh
+    height: 79vh
 }
 
 .sidebar {
@@ -157,59 +160,71 @@ img{
 .main {
     flex: 1;
     padding: 20px;
+    padding-bottom: 0px;
 
 }
 
-#pele{
+#pele {
     height: 30px;
     border-radius: 20px;
     text-align: center;
 }
 
 
-.artist{
+.artist {
+    margin: auto;
+    padding: 0;
     width: 95vh;
-    cursor: pointer;
+    
     display: flex;
     justify-content:center;
     align-content: center;
-    position:sticky;
-    
-    background-color: antiquewhite;
-    height:12vh;
-    
-    margin:auto;
+    position: sticky;
+
+    background-color: rgb(14, 14, 13);
+    height: 11vh;
+
+
     border-radius: 30px;
     flex-direction: column;
     
-}
-#range{
-    display: flex;
-   justify-content: center;
-   
-
-   margin-top: 3vh;
-   margin-left: 46px;
-
     
+
+}
+
+#range {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    margin-top: 3vh;
+    margin-left: 46px;
+
+
     width: 80vh;
 
 
 }
-.play{
+
+.play {
     size: 30px;
     height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    cursor: pointer;
     
+    
+
+
 }
-.songItem{
+
+
+.songItem {
     cursor: pointer;
     height: 45px;
     background-color: antiquewhite;
-    color: #222;
+    color: #0b0a0a;
     align-items: center;
     justify-content: space-between;
     margin: 12px 0;
@@ -217,19 +232,37 @@ img{
     width: 300px;
     border-radius: 30px;
     margin-left: 33px;
-    
-    
+
+
 
 }
-.songItem img{
+.songItem:hover{
+    background-color: rgb(224, 221, 225);
+}
+.songItem img {
     margin-left: 10px;
     height: 35px;
     width: 35px;
-    
+
 }
 
 
-.music{
-    height: 250px;
+.music {
+    height: 325px;
     overflow-y: scroll;
+}
+
+#songInfo{
+    color: #faf4f4;
+    position:absolute;
+    left: 0px;
+    margin: 45px;
+    font-size:10px;
+    cursor: default;
+   
+    
+    
+}
+#songInfo img{
+    height: 10px;
 }
