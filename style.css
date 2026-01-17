@@ -171,23 +171,23 @@ img {
 }
 
 
-.artist {
-    margin: auto;
+/* .artist {
+    margin-left: auto;
     padding: 0;
     width: 95vh;
     
     display: flex;
     justify-content:center;
-    align-content: center;
+    align-items: center;
     position: sticky;
 
-    background-color: rgb(14, 14, 13);
-    height: 11vh;
+    background-color: rgb(217, 217, 75);
+    height: 12vh;
 
 
     border-radius: 30px;
-    flex-direction: column;
-    
+        flex-direction: column;
+    flex-wrap: wrap;
     
 
 }
@@ -195,18 +195,45 @@ img {
 #range {
     display: flex;
     justify-content: center;
+    align-items: center;
     cursor: pointer;
 
-    margin-top: 3vh;
-    margin-left: 46px;
+    margin-top: 0vh;
+    margin-left: 5vh;
 
 
     width: 80vh;
+    
 
 
+} */
+ .artist {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 900px;
+    height: 75px;
+
+    background-color: rgb(217, 217, 75);
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.play {
+#range {
+    margin-top: 1vh;
+    width: 85%;
+    cursor: pointer;
+}
+
+
+/* .play {
     size: 30px;
     height: 300px;
     display: flex;
@@ -217,7 +244,37 @@ img {
     
 
 
+} */
+ 
+/* #songInfo{
+    color: #faf4f4;
+    position:absolute;
+    left: 0px;
+    margin: 45px;
+    font-size:10px;
+    cursor: default;
+   
+    
+    
+} */
+
+.play {
+    display: flex;
+    cursor: pointer;
+    gap: 10px;
+    
 }
+
+#songInfo {
+    margin: left 10px; ;
+    color: #fff;
+    font-size: 13px;
+    
+    display: flex;
+    
+    gap: 8px;
+}
+
 
 
 .songItem {
@@ -248,21 +305,15 @@ img {
 
 
 .music {
-    height: 325px;
+    height: 290px;
     overflow-y: scroll;
 }
 
-#songInfo{
-    color: #faf4f4;
-    position:absolute;
-    left: 0px;
-    margin: 45px;
-    font-size:10px;
-    cursor: default;
-   
-    
-    
+
+#songInfo img {
+    height: 14px;
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
 }
-#songInfo img{
-    height: 10px;
-}
+
+
