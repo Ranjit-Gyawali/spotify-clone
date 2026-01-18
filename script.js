@@ -19,6 +19,8 @@ let range=document.getElementById('range');
 let gif=document.getElementById('gif');
 let prev=document.getElementById('prev');
 let next=document.getElementById('next');
+let songBtn=document.querySelectorAll('fa-solid fa-circle-play');
+
 
 
 
@@ -108,6 +110,9 @@ next.addEventListener('click', () => {
     // Optional: update song name display
     // document.getElementById('songName').innerText = songs[songIndex].songName;
 });
+
+
+
 
    
 
