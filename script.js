@@ -19,7 +19,8 @@ let range=document.getElementById('range');
 let gif=document.getElementById('gif');
 let prev=document.getElementById('prev');
 let next=document.getElementById('next');
-let songBtn=document.querySelectorAll('fa-solid fa-circle-play');
+let songBtns =document.querySelectorAll('.songBtn');
+let currentSong = document.getElementById('currentSong');
 
 
 
@@ -43,6 +44,8 @@ let audioElement = new Audio(songs[songIndex].songPath);
 masterPlay.addEventListener('click',()=>{
     if(audioElement.paused||audioElement.currentTime<=0){
         audioElement.play();
+        currentSong.innerText = songs[songIndex].songName;
+
         masterPlay.classList.remove('fa-circle-play');
         masterPlay.classList.add('fa-pause');
         gif.style.opacity=1;
@@ -69,7 +72,7 @@ range.addEventListener('input',()=>{
 })
 
 function loadSong(index) {
-    audioElement.src = songs[index].filePath;
+    audioElement.src = songs[index].songPath;
     audioElement.currentTime = 0;
     audioElement.play();
 }
@@ -84,6 +87,11 @@ prev.addEventListener('click', () => {
     audioElement.src = songs[songIndex].songPath; // use songPath, not filePath
     audioElement.currentTime = 0;
     audioElement.play();
+    currentSong.innerText = songs[songIndex].songName;
+     updateVibeText();
+
+    updateSideButtons();
+
 
     masterPlay.classList.remove('fa-circle-play');
     masterPlay.classList.add('fa-pause');
@@ -102,6 +110,11 @@ next.addEventListener('click', () => {
     audioElement.src = songs[songIndex].songPath;
     audioElement.currentTime = 0;
     audioElement.play();
+    currentSong.innerText = songs[songIndex].songName;
+    updateVibeText();
+
+    updateSideButtons();
+
 
     masterPlay.classList.remove('fa-circle-play');
     masterPlay.classList.add('fa-pause');
@@ -114,9 +127,67 @@ next.addEventListener('click', () => {
 
 
 
+
    
 
 
 
 
 
+const makeAllPlays = () => {
+    songBtns.forEach(btn => {
+        btn.classList.remove('fa-pause');
+        btn.classList.add('fa-circle-play');
+    });
+};
+
+songBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const index = parseInt(e.target.dataset.index);
+
+        if (songIndex === index && !audioElement.paused) {
+            audioElement.pause();
+            e.target.classList.replace('fa-pause','fa-circle-play');
+            masterPlay.classList.replace('fa-pause','fa-circle-play');
+            gif.style.opacity = 0;
+        } else {
+            makeAllPlays();
+            songIndex = index;
+            audioElement.src = songs[songIndex].songPath;
+            audioElement.currentTime = 0;
+            audioElement.play();
+            currentSong.innerText = songs[songIndex].songName;
+
+
+            e.target.classList.replace('fa-circle-play','fa-pause');
+            masterPlay.classList.replace('fa-circle-play','fa-pause');
+            gif.style.opacity = 1;
+        }
+    });
+});
+function updateSideButtons(){
+    makeAllPlays();
+    songBtns[songIndex].classList.replace('fa-circle-play','fa-pause');
+}
+
+
+audioElement.addEventListener("play", () => {
+    document.querySelector(".vibe-bg").style.animationPlayState = "running";
+});
+
+audioElement.addEventListener("pause", () => {
+    document.querySelector(".vibe-bg").style.animationPlayState = "paused";
+});
+
+const vibeSongName = document.getElementById("vibeSongName");
+
+function updateVibeText() {
+    vibeSongName.style.opacity = 0;
+    vibeSongName.style.transform = "translateY(10px)";
+
+    setTimeout(() => {
+        vibeSongName.innerText = songs[songIndex].songName;
+        vibeSongName.style.opacity = 1;
+        vibeSongName.style.transform = "translateY(0)";
+    }, 200);
+}

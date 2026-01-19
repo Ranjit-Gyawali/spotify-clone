@@ -149,20 +149,28 @@ img {
 
 .layout {
     display: flex;
-    height: 79vh
+    height: 79vh; /* or auto */
+    gap: 20px;
 }
-
 .sidebar {
-    width: 260px;
+    width: 260px; /* fixed width */
     padding: 10px;
 }
 
-.main {
-    flex: 1;
-    padding: 20px;
-    padding-bottom: 0px;
 
+.main {
+   
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    min-height: 400px;  /* minimum height for vibe-bg */
+    flex-wrap: nowrap;
+    align-items: flex-start; /* make children start from top */
 }
+
+    
+
+
 
 #pele {
     height: 30px;
@@ -305,6 +313,7 @@ img {
 
 
 .music {
+     width: 55%; 
     height: 290px;
     overflow-y: scroll;
 }
@@ -315,5 +324,111 @@ img {
     opacity: 0;
     transition: opacity 0.8s ease-in;
 }
+
+
+
+ .music {
+    width: 55%;
+    height: 290px;
+    overflow-y: scroll;
+}
+
+/* Vibe background on right */
+.vibe-bg {
+    width: 45%;
+    border-radius: 20px;
+   
+
+
+    background-image: url("vibe.jpg"); /* your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+    overflow: hidden;
+}
+@keyframes vibeMove {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(1.02) translateY(-4px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.vibe-bg {
+    animation: vibeMove 6s ease-in-out infinite;
+}
+.vibe-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.2)
+    );
+}
+
+
+.vibe-text {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 2;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.vibe-text h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: textFade 0.6s ease forwards;
+}
+
+.vibe-text p {
+    font-size: 14px;
+    opacity: 0.7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* animation */
+@keyframes textFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.vibe-text {
+    background: rgba(0,0,0,0.35);
+    padding: 16px 22px;
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+}
+
+
+.vibe-bg {
+    width: 45%;  /* right side */
+    height: 100%; /* fill parent */
+    border-radius: 20px;
+    background-image: url("vibe-bg.jpg"); /* make sure the file is in the same folder */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+
+    animation: vibeMove 6s ease-in-out infinite;
+}
+
+
 
 
