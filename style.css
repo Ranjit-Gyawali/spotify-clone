@@ -159,13 +159,10 @@ img {
 
 
 .main {
-   
     display: flex;
+    flex-direction: column; /* stack content, then row */
     gap: 20px;
     width: 100%;
-    min-height: 400px;  /* minimum height for vibe-bg */
-    flex-wrap: nowrap;
-    align-items: flex-start; /* make children start from top */
 }
 
     
@@ -179,42 +176,7 @@ img {
 }
 
 
-/* .artist {
-    margin-left: auto;
-    padding: 0;
-    width: 95vh;
-    
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    position: sticky;
 
-    background-color: rgb(217, 217, 75);
-    height: 12vh;
-
-
-    border-radius: 30px;
-        flex-direction: column;
-    flex-wrap: wrap;
-    
-
-}
-
-#range {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    margin-top: 0vh;
-    margin-left: 5vh;
-
-
-    width: 80vh;
-    
-
-
-} */
  .artist {
     position: fixed;
     bottom: 10px;
@@ -241,30 +203,6 @@ img {
 }
 
 
-/* .play {
-    size: 30px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    
-    
-
-
-} */
- 
-/* #songInfo{
-    color: #faf4f4;
-    position:absolute;
-    left: 0px;
-    margin: 45px;
-    font-size:10px;
-    cursor: default;
-   
-    
-    
-} */
 
 .play {
     display: flex;
@@ -311,9 +249,14 @@ img {
 
 }
 
-
+.music-vibe-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: flex-start;
+}
 .music {
-     width: 55%; 
+     width: 40%; 
     height: 290px;
     overflow-y: scroll;
 }
@@ -327,108 +270,79 @@ img {
 
 
 
- .music {
-    width: 55%;
-    height: 290px;
-    overflow-y: scroll;
+
+
+/* Vibe column wrapper */
+.vibe-column {
+
+
+
+
+
+
+
+
+
+
+
+    
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* space between image and text */
+    align-items: center; /* center horizontally */
 }
 
-/* Vibe background on right */
+/* Vibe background image */
 .vibe-bg {
-    width: 45%;
+    width: 100%;
+    height: 200px; /* smaller height to move image up */
     border-radius: 20px;
-   
-
-
-    background-image: url("vibe.jpg"); /* your image */
+    background-image: url("vibe-bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    position: relative;
     overflow: hidden;
-}
-@keyframes vibeMove {
-    0% {
-        transform: scale(1) translateY(0);
-    }
-    50% {
-        transform: scale(1.02) translateY(-4px);
-    }
-    100% {
-        transform: scale(1) translateY(0);
-    }
-}
-
-.vibe-bg {
+    position: relative;
     animation: vibeMove 6s ease-in-out infinite;
 }
-.vibe-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.6),
-        rgba(0,0,0,0.2)
-    );
-}
 
-
+/* Song title below the image */
 .vibe-text {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    z-index: 2;
-    color: white;
-    font-family: 'Poppins', sans-serif;
+    background: rgba(0,0,0,0.35); 
+    padding: 12px 16px;
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    margin-top: 0; /* ensure text starts immediately below image */
 }
 
+/* Text animation */
 .vibe-text h2 {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin: 0;
     opacity: 0;
     transform: translateY(10px);
     animation: textFade 0.6s ease forwards;
 }
 
 .vibe-text p {
-    font-size: 14px;
+    font-size: 12px;
     opacity: 0.7;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
-/* animation */
+/* Keyframes for smooth image float */
+@keyframes vibeMove {
+    0% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.02) translateY(-6px); } /* slightly more float up */
+    100% { transform: scale(1) translateY(0); }
+}
+
 @keyframes textFade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
-.vibe-text {
-    background: rgba(0,0,0,0.35);
-    padding: 16px 22px;
-    border-radius: 14px;
-    backdrop-filter: blur(12px);
-}
-
-
-.vibe-bg {
-    width: 45%;  /* right side */
-    height: 100%; /* fill parent */
-    border-radius: 20px;
-    background-image: url("vibe-bg.jpg"); /* make sure the file is in the same folder */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    overflow: hidden;
-
-    animation: vibeMove 6s ease-in-out infinite;
-}
-
-
-
-
